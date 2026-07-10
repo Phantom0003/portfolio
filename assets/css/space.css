@@ -1,0 +1,385 @@
+/* ================================================================
+   SPACE CSS — Galaxy Portfolio CMS
+   Stars, Planets, Orbits, Nebula, Astronaut
+   ================================================================ */
+
+/* ── Galaxy Background ───────────────────────────────────────── */
+.galaxy-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(107, 33, 168, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(79, 70, 229, 0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 80%, rgba(217, 70, 239, 0.15) 0%, transparent 40%),
+    linear-gradient(135deg, #0a0015 0%, #130025 50%, #0a0020 100%);
+  pointer-events: none;
+}
+
+/* ── Canvas Stars ────────────────────────────────────────────── */
+#star-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Nebula Layers ───────────────────────────────────────────── */
+.nebula-layer {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: nebula-pulse 8s ease-in-out infinite;
+}
+
+.nebula-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(147,51,234,0.2), transparent 70%);
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.nebula-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(79,70,229,0.18), transparent 70%);
+  top: 30%;
+  right: -100px;
+  animation-delay: 3s;
+}
+
+.nebula-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(217,70,239,0.15), transparent 70%);
+  bottom: 10%;
+  left: 30%;
+  animation-delay: 6s;
+}
+
+/* ── Hero Space Scene ────────────────────────────────────────── */
+.space-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* ── Astronaut ───────────────────────────────────────────────── */
+.astronaut-wrapper {
+  position: relative;
+  display: inline-block;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(147,51,234,0.5));
+}
+
+.astronaut-img {
+  width: 280px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* CSS Astronaut (fallback if no image) */
+.css-astronaut {
+  width: 180px;
+  height: 220px;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+.css-astronaut .helmet {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(196,181,253,0.9), rgba(147,51,234,0.6));
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow:
+    0 0 30px rgba(147,51,234,0.5),
+    inset -10px -10px 20px rgba(0,0,0,0.3),
+    inset 5px 5px 15px rgba(255,255,255,0.2);
+  border: 3px solid rgba(255,255,255,0.3);
+}
+
+.css-astronaut .visor {
+  width: 70px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(56,189,248,0.7), rgba(79,70,229,0.5));
+  border-radius: 40%;
+  position: absolute;
+  top: 30px;
+  left: 25px;
+  box-shadow: inset 0 2px 10px rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.css-astronaut .body {
+  width: 100px;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(196,181,253,0.8), rgba(107,33,168,0.7));
+  border-radius: 20px 20px 10px 10px;
+  margin: -10px auto 0;
+  position: relative;
+  box-shadow:
+    0 0 20px rgba(147,51,234,0.4),
+    inset -5px -5px 15px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* ── Orbit System ────────────────────────────────────────────── */
+.orbit-system {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(196,181,253,0.15);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-ring-1 {
+  width: 340px;
+  height: 340px;
+  animation: orbit-ring 20s linear infinite;
+  border-color: rgba(147,51,234,0.2);
+  border-style: dashed;
+}
+
+.orbit-ring-2 {
+  width: 500px;
+  height: 500px;
+  animation: orbit-ring-rev 30s linear infinite;
+  border-color: rgba(79,70,229,0.15);
+}
+
+.orbit-ring-3 {
+  width: 680px;
+  height: 680px;
+  animation: orbit-ring 45s linear infinite;
+  border-color: rgba(217,70,239,0.1);
+  border-style: dotted;
+}
+
+/* Orbiting Planets */
+.orbit-planet {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform-origin: 0 170px;
+}
+
+.orbit-planet-1 {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 35% 35%, #c4b5fd, #7c3aed);
+  box-shadow: 0 0 15px rgba(147,51,234,0.8);
+  animation: orbit-ring 20s linear infinite;
+  margin-left: -10px;
+  margin-top: -10px;
+  transform-origin: 0 170px;
+}
+
+.orbit-planet-2 {
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 35% 35%, #818cf8, #4f46e5);
+  box-shadow: 0 0 12px rgba(79,70,229,0.8);
+  animation: orbit-ring-rev 15s linear infinite;
+  margin-left: -7px;
+  margin-top: -7px;
+  transform-origin: 0 250px;
+}
+
+.orbit-planet-3 {
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at 35% 35%, #f0abfc, #d946ef);
+  box-shadow: 0 0 10px rgba(217,70,239,0.8);
+  animation: orbit-ring 35s linear infinite;
+  margin-left: -5px;
+  margin-top: -5px;
+  transform-origin: 0 340px;
+}
+
+/* ── Floating Planets (decorative) ──────────────────────────── */
+.planet-decor {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.planet-1 {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 35% 35%, #c4b5fd, #6b21a8 60%, #0a0015);
+  box-shadow: 0 0 40px rgba(107,33,168,0.5), inset -10px -10px 20px rgba(0,0,0,0.4);
+  top: 15%;
+  right: 8%;
+  animation: float-slow 9s ease-in-out infinite;
+}
+
+.planet-1::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 30%;
+  border-radius: 50%;
+  border: 2px solid rgba(196,181,253,0.3);
+  top: 35%;
+  left: -10%;
+  transform: rotate(-20deg);
+}
+
+.planet-2 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 35% 35%, #818cf8, #4f46e5 60%, #0a0015);
+  box-shadow: 0 0 25px rgba(79,70,229,0.5);
+  bottom: 20%;
+  left: 5%;
+  animation: float 7s ease-in-out infinite 2s;
+}
+
+.planet-3 {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 35% 35%, #f0abfc, #d946ef);
+  box-shadow: 0 0 20px rgba(217,70,239,0.6);
+  top: 40%;
+  left: 12%;
+  animation: float-slow 5s ease-in-out infinite 1s;
+}
+
+/* ── Floating Geometric Shapes ───────────────────────────────── */
+.geo-shape {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.geo-triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid rgba(147,51,234,0.4);
+  animation: float 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(147,51,234,0.5));
+}
+
+.geo-diamond {
+  width: 20px;
+  height: 20px;
+  background: rgba(196,181,253,0.4);
+  transform: rotate(45deg);
+  animation: float-slow 10s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(196,181,253,0.4);
+}
+
+.geo-circle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(217,70,239,0.5);
+  border-radius: 50%;
+  animation: pulse-neon 3s ease-in-out infinite;
+}
+
+/* Placed shapes */
+.geo-1 { top: 20%; left: 20%; }
+.geo-2 { top: 70%; right: 15%; animation-delay: 3s; }
+.geo-3 { bottom: 30%; left: 40%; animation-delay: 1.5s; }
+.geo-4 { top: 55%; right: 30%; animation-delay: 4s; }
+.geo-5 { top: 10%; left: 60%; animation-delay: 2s; }
+
+/* ── Rocket (decorative) ─────────────────────────────────────── */
+.css-rocket {
+  position: absolute;
+  width: 30px;
+  height: 60px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.css-rocket .rocket-body {
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(180deg, rgba(196,181,253,0.9), rgba(147,51,234,0.7));
+  border-radius: 50% 50% 20% 20%;
+  position: relative;
+  box-shadow: 0 0 15px rgba(147,51,234,0.5);
+}
+
+.css-rocket .rocket-flame {
+  width: 50%;
+  height: 30%;
+  background: linear-gradient(180deg, #f59e0b, #ef4444, transparent);
+  border-radius: 0 0 50% 50%;
+  margin: 0 auto;
+  animation: pulse-neon 0.3s ease-in-out infinite;
+}
+
+/* ── Hero Section ─────────────────────────────────────────────── */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  padding: 100px 0 60px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  color: var(--purple-light, #a855f7);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 550px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ── Typing cursor ────────────────────────────────────────────── */
+.typing-text {
+  border-right: 3px solid var(--purple-bright, #9333EA);
+  animation: blink-cursor 1s ease-in-out infinite;
+  padding-right: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ── Stars (CSS fallback small dots) ─────────────────────────── */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite var(--delay, 0s);
+}
